@@ -1,0 +1,17 @@
+#cocktail-element-container {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+  background-color: rgb(36, 36, 36);
+  color: var(--colors-element-text);
+  border-radius: 16px;
+
+  .img { height: 18px; }
+
+  .mr { margin-right: 6px; }
+
+  .ml { margin-left: 6px; }
+}

@@ -1,0 +1,32 @@
+#cocktails-list-container {
+  height: 100%;
+  width: 100%;
+
+  #top-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    img { height: var(--fontSizes-title); }
+
+    #name {
+      font-size: var(--fontSizes-title);
+      font-weight: bold;
+      color: var(--colors-element-text);
+
+      &.success { color: var(--colors-success); }
+    }
+  }
+
+  #list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+}
