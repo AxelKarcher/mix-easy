@@ -1,12 +1,15 @@
 .cocktail-element-container {
   height: calc(var(--fontSizes-normal) * 1.50);
-  background-color: var(--colors-element-default);
+  background-color: var(--colors-element-bg);
   color: var(--colors-element-text);
   border-radius: var(--ui-radius);
-  border: 2px solid black;
+  border: 2px solid var(--colors-element-border-default);
   box-sizing: border-box;
+  padding: var(--ui-padding);
 
   .img { height: var(--fontSizes-normal); }
+
+  .mr { margin-right: var(--ui-margin); }
 
   .ml { margin-left: var(--ui-margin); }
 }

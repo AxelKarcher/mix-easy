@@ -12,7 +12,8 @@
   --colors-bg: #65797d;
   --colors-element-text: #e8f7fa;
   --colors-success: #89ff89;
-  --colors-element-default: #242424;
+  --colors-element-bg: #242424;
+  --colors-element-border-default: #FFF;
 
   /* FONT SIZES */
   --fontSizes-normal: 7vw;

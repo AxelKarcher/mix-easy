@@ -6,6 +6,7 @@ import './CocktailElement.scss'
 const CocktailElement = ({ onClick, data, label }) => {
 
   const color = ingredients[data?.type]?.color
+  const img = ingredients[data?.type]?.img
 
   const displayedLabel = label || data?.label
 
@@ -15,6 +16,7 @@ const CocktailElement = ({ onClick, data, label }) => {
       style={{ borderColor: color }}
       onClick={onClick ?? null}
     >
+      {img && <img className='img mr' src={img} />}
       <span>{displayedLabel}</span>
       {data?.isLayered && <img className='img ml' src={layered} />}
     </div>

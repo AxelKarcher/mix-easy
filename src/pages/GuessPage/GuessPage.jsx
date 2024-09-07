@@ -9,6 +9,7 @@ import tickSound from '@assets/audio/tick.ogg'
 import ouiSound from '@assets/audio/oui.ogg'
 import plopSound from '@assets/audio/plop.ogg'
 import successSound from '@assets/audio/success.ogg'
+import misc from '@config/misc'
 
 import './GuessPage.scss'
 
@@ -17,7 +18,7 @@ const ouiAudio = new Audio(ouiSound)
 const plopAudio = new Audio(plopSound)
 const successAudio = new Audio(successSound)
 
-const GuessPage = ({ handleBack }) => {
+const GuessPage = () => {
 
   const [currCocktail, setCurrCocktail] = useState()
   const [randomSteps, setRandomSteps] = useState([])
@@ -39,7 +40,7 @@ const GuessPage = ({ handleBack }) => {
 
   useEffect(() => {
     if (isSuccess) {
-      if (Math.random() < 0.1) {
+      if (Math.random() < misc.ouiChance) {
         ouiAudio.play()
       } else {
         successAudio.play()
@@ -60,7 +61,13 @@ const GuessPage = ({ handleBack }) => {
   }
 
   const pickRandomCocktail = () => {
-    setCurrCocktail(houseCocktails[Math.floor(Math.random() * houseCocktails.length)])
+    let newCocktail = null
+
+    while (newCocktail === null || newCocktail === currCocktail) {
+      newCocktail = houseCocktails[Math.floor(Math.random() * houseCocktails.length)]
+    }
+
+    setCurrCocktail(newCocktail)
   }
 
   const pickStep = (step) => {
