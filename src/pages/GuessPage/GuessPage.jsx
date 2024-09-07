@@ -4,7 +4,7 @@ import { HiRefresh } from 'react-icons/hi'
 import CocktailElement from '@components/CocktailElement/CocktailElement'
 import PageBase from '@components/PageBase/PageBase'
 import Separator from '@components/Separator/Separator'
-import houseCocktails from '@config/houseCocktails'
+import cocktails from '@config/cocktails'
 import tickSound from '@assets/audio/tick.ogg'
 import ouiSound from '@assets/audio/oui.ogg'
 import plopSound from '@assets/audio/plop.ogg'
@@ -62,9 +62,20 @@ const GuessPage = () => {
 
   const pickRandomCocktail = () => {
     let newCocktail = null
+    let newFamily = null
+
+    const getRandomCocktail = () => {
+      const randomFamilyIndex = Math.floor(Math.random() * cocktails.length)
+      const selectedFamily = cocktails[randomFamilyIndex]
+
+      const randomCocktailIndex = Math.floor(Math.random() * selectedFamily.cocktails.length)
+
+      return selectedFamily.cocktails[randomCocktailIndex]
+    }
 
     while (newCocktail === null || newCocktail === currCocktail) {
-      newCocktail = houseCocktails[Math.floor(Math.random() * houseCocktails.length)]
+      newFamily = cocktails[Math.floor(Math.random() * cocktails.length)]
+      newCocktail = getRandomCocktail()
     }
 
     setCurrCocktail(newCocktail)
