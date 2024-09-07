@@ -3,6 +3,7 @@ import { FaCocktail } from 'react-icons/fa'
 import { GiCook } from 'react-icons/gi'
 
 import SquareBtn from './SquareBtn/SquareBtn'
+import misc from '@config/misc'
 
 import './HomePage.scss'
 
@@ -25,7 +26,7 @@ const HomePage = () => {
 
   return (
     <div className='home-page-container'>
-      <span id='title'>Mix Easy</span>
+      <span id='title'>{misc.projectName}</span>
       <div id='square-areas'>
         {btnsMap.map(({ icon, path}, i) => (
           <SquareBtn key={i} icon={icon} onClick={() => moveToPath(path)} />

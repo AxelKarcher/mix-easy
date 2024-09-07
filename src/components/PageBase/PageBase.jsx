@@ -13,7 +13,7 @@ const PageBase = ({ className, title, children, secondary }) => {
     <div className={`page-base-container ${className}`}>
       <div className='header-row'>
         <FaCaretLeft className='icon' onClick={() => navigate(-1)} />
-        <span>{title}</span>
+        <span className='title'>{title}</span>
         {
           secondary &&
           <span className='row' onClick={secondary.onClick}>{secondary.icon}</span>

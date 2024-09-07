@@ -11,5 +11,7 @@
     font-weight: bold;
     font-size: var(--fontSizes-title);
     padding: 0 var(--ui-padding);
+
+    .title { text-align: center; }
   }
 }

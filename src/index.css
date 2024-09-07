@@ -25,7 +25,7 @@
   --ui-margin: 10px;
   --ui-radius: 20px;
 
-  background-color: var(--colors-bg);
+  background-image: url(./assets/bg.png);
   font-size: var(--fontSizes-normal);
   color: var(--colors-element-text);
 }

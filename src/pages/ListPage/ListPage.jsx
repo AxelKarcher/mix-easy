@@ -16,9 +16,9 @@ const ListPage = () => {
 
   return (
     <PageBase title='Cocktails list'>
-      <div className='list padded'>
+      <div className='list'>
         {cocktails.map(({ familyName, cocktails }, i) => (
-          <div key={i}>
+          <div key={i} className='list padded'>
             <span>{familyName}</span>
             {cocktails.map((cocktail, j) => (
               <CocktailElement
