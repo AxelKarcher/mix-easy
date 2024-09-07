@@ -12,12 +12,43 @@
   --colors-bg: #65797d;
   --colors-element-text: #e8f7fa;
   --colors-success: #89ff89;
+  --colors-element-default: #242424;
 
   /* FONT SIZES */
+  --fontSizes-normal: 7vw;
+  --fontSizes-title-1: 18vw;
   --fontSizes-title: 8vw;
 
+  /* UI */
+  --ui-padding: 10px;
+  --ui-margin: 10px;
+  --ui-radius: 20px;
+
   background-color: var(--colors-bg);
-  font-size: 6vw;
+  font-size: var(--fontSizes-normal);
+  color: var(--colors-element-text);
 }
 
 body { margin: 0; }
+
+.icon {
+  color: var(--colors-element-text);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-margin);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.padded {
+  padding: var(--ui-padding);
+  box-sizing: border-box;
+}

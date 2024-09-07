@@ -1,0 +1,15 @@
+.page-base-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: var(--fontSizes-title);
+    padding: 0 var(--ui-padding);
+  }
+}

@@ -1,22 +1,23 @@
 import { useState, useEffect } from 'react'
+import { HiRefresh } from 'react-icons/hi'
 
-import refreshIcon from '@assets/refreshIcon.png'
-import leftArrowIcon from '@assets/leftArrow.png'
-import './CocktailGuess.scss'
 import CocktailElement from '@components/CocktailElement/CocktailElement'
+import PageBase from '@components/PageBase/PageBase'
 import Separator from '@components/Separator/Separator'
 import houseCocktails from '@config/houseCocktails'
-import tickSound from '@assets/tick.ogg'
-import ouiSound from '@assets/oui.ogg'
-import plopSound from '@assets/plop.ogg'
-import successSound from '@assets/success.ogg'
+import tickSound from '@assets/audio/tick.ogg'
+import ouiSound from '@assets/audio/oui.ogg'
+import plopSound from '@assets/audio/plop.ogg'
+import successSound from '@assets/audio/success.ogg'
+
+import './GuessPage.scss'
 
 const tickAudio = new Audio(tickSound)
 const ouiAudio = new Audio(ouiSound)
 const plopAudio = new Audio(plopSound)
 const successAudio = new Audio(successSound)
 
-const CocktailGuess = ({ handleBack }) => {
+const GuessPage = ({ handleBack }) => {
 
   const [currCocktail, setCurrCocktail] = useState()
   const [randomSteps, setRandomSteps] = useState([])
@@ -96,26 +97,28 @@ const CocktailGuess = ({ handleBack }) => {
   })
 
   return (
-    <div id='cocktail-guess-container'>
-      <div id='top-row'>
-        <img onClick={handleBack} src={leftArrowIcon} />
-        <span id='name' className={isSuccess ? 'success' : null}>{currCocktail?.name}</span>
-        <img onClick={pickRandomCocktail} src={refreshIcon} />
+    <PageBase
+      title={currCocktail?.name}
+      secondary={{
+        icon: <HiRefresh className='icon' />,
+        onClick: pickRandomCocktail
+      }}
+    >
+      <div id='guess-page-container'>
+        <div className='guess-area padded'>
+          {stepsGuess.map((step, i) => (
+            <CocktailElement key={i} onClick={() => removeGuess(i)} data={step} />
+          ))}
+        </div>
+        {stepsOptions?.length > 0 && <Separator />}
+        <div className='options-area padded'>
+          {stepsOptions?.map((step, i) => (
+            <CocktailElement key={i} onClick={() => pickStep(step)} data={step} />
+          ))}
+        </div>
       </div>
-      <Separator />
-      <div id='guess-area'>
-        {stepsGuess.map((step, i) => (
-          <CocktailElement key={i} onClick={() => removeGuess(i)} data={step} />
-        ))}
-      </div>
-      {stepsOptions?.length > 0 && <Separator />}
-      <div id='options-area'>
-        {stepsOptions?.map((step, i) => (
-          <CocktailElement key={i} onClick={() => pickStep(step)} data={step} />
-        ))}
-      </div>
-    </div>
+    </PageBase>
   )
 }
 
-export default CocktailGuess
+export default GuessPage

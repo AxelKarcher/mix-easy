@@ -1,18 +1,21 @@
-import './CocktailElement.scss'
 import ingredients from '@config/ingredients'
 import layered from '@assets/layered.png'
 
+import './CocktailElement.scss'
+
 const CocktailElement = ({ onClick, data, label }) => {
 
-  const img = ingredients[data?.type]?.img
+  const color = ingredients[data?.type]?.color
+
+  const displayedLabel = label || data?.label
 
   return (
     <div
-      id='cocktail-element-container'
+      className='cocktail-element-container row'
+      style={{ borderColor: color }}
       onClick={onClick ?? null}
     >
-      {img && <img className='img mr' src={img} />}
-      <span>{label || data?.label}</span>
+      <span>{displayedLabel}</span>
       {data?.isLayered && <img className='img ml' src={layered} />}
     </div>
   )
